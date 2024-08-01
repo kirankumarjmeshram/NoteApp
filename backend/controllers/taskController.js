@@ -2,6 +2,7 @@ const Task = require('../models/Task');
 
 exports.createTask = async (req, res)=>{
     const {title, description, dueDate} = req.body;
+    console.log(title, description, dueDate)
     try {
         const task = new Task({title, description, dueDate, owner: req.user._id});
         await task.save();
